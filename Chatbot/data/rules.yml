@@ -1,0 +1,228 @@
+version: "3.1"
+
+rules:
+# ==================== BASIC RULES ====================
+- rule: Greet User
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Thank User
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+- rule: Say Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+# ==================== LAYER 1: COMPANY-SPECIFIC RULES ====================
+- rule: Get Average Package
+  steps:
+  - intent: ask_avg_package
+  - action: action_get_avg_package
+
+- rule: Get Maximum Package
+  steps:
+  - intent: ask_max_package
+  - action: action_get_max_package
+
+- rule: Get Minimum CGPA
+  steps:
+  - intent: ask_min_cgpa
+  - action: action_get_min_cgpa
+
+- rule: Get Allowed Departments
+  steps:
+  - intent: ask_allowed_departments
+  - action: action_get_allowed_departments
+
+- rule: Get Required Skills
+  steps:
+  - intent: ask_required_skills
+  - action: action_get_required_skills
+
+- rule: Get Company Backlog Policy
+  steps:
+  - intent: ask_company_backlogs
+  - action: action_get_company_backlog_policy
+
+- rule: Get Company Tier
+  steps:
+  - intent: ask_company_tier
+  - action: action_get_company_tier
+
+- rule: Get Hiring Roles
+  steps:
+  - intent: ask_hiring_roles
+  - action: action_get_hiring_roles
+
+- rule: Get Eligibility Summary
+  steps:
+  - intent: ask_eligibility_summary
+  - action: action_get_eligibility_summary
+
+- rule: Check Company Eligibility
+  steps:
+  - intent: ask_company_eligibility
+  - action: action_check_eligibility
+
+- rule: Get Interview Process
+  steps:
+  - intent: ask_interview_process
+  - action: action_get_interview_process
+
+- rule: Area specific prep topics (HIGH PRIORITY)
+  condition:
+  - slot_was_set:
+    - prep_area: true
+  steps:
+  - intent: ask_prep_topics_by_area
+  - action: action_prep_topics_by_area
+
+- rule: Get Preparation Roadmap
+  steps:
+  - intent: ask_preparation_roadmap
+  - action: action_get_preparation_roadmap
+
+# ==================== NEW HUMAN-LIKE ACTION RULES ====================
+- rule: Get Company Overview
+  steps:
+  - intent: ask_company_overview
+  - action: action_get_company_overview
+
+- rule: Get Company Difficulty
+  steps:
+  - intent: ask_company_difficulty
+  - action: action_get_company_difficulty
+
+- rule: Get Hiring Pattern
+  steps:
+  - intent: ask_company_hiring_pattern
+  - action: action_get_hiring_pattern
+
+- rule: Get Job Roles
+  steps:
+  - intent: ask_company_job_roles
+  - action: action_get_job_roles
+
+- rule: Get Company Category
+  steps:
+  - intent: ask_company_category
+  - action: action_get_company_category
+
+- rule: Get Company Tier Info
+  steps:
+  - intent: ask_company_tier_info
+  - action: action_get_company_tier_info
+
+- rule: Get Company Preparation Guide
+  steps:
+  - intent: ask_company_preparation
+  - action: action_get_company_preparation
+
+- rule: Compare Two Companies
+  steps:
+  - intent: compare_companies
+  - action: action_compare_companies
+
+- rule: List Companies by Category
+  steps:
+  - intent: list_companies_by_category
+  - action: action_list_companies_by_category
+
+# ==================== LAYER 2: AGGREGATE RULES ====================
+- rule: List Companies by CGPA
+  steps:
+  - intent: list_companies_by_cgpa
+  - action: action_list_companies_by_cgpa
+
+- rule: List Companies Allowing Backlogs
+  steps:
+  - intent: list_companies_allowing_backlogs
+  - action: action_list_companies_allowing_backlogs
+
+- rule: Count Companies
+  steps:
+  - intent: ask_count_companies
+  - action: action_count_companies
+
+- rule: List Tier-1 Companies
+  steps:
+  - intent: list_tier1_companies
+  - action: action_list_tier1_companies
+
+- rule: List High Paying Companies
+  steps:
+  - intent: list_high_paying_companies
+  - action: action_list_high_paying_companies
+
+- rule: List Companies by Branch
+  steps:
+  - intent: list_companies_by_branch
+  - action: action_list_companies_by_branch
+
+- rule: Count Companies by Criteria
+  steps:
+  - intent: count_companies_by_criteria
+  - action: action_count_companies
+
+# ==================== LAYER 3: POLICY/GENERAL RULES ====================
+- rule: Explain Placement Rules
+  steps:
+  - intent: ask_placement_rules
+  - action: utter_placement_rules
+
+- rule: Explain Backlog Rules
+  steps:
+  - intent: ask_backlog_rules
+  - action: utter_backlog_rules
+
+- rule: Show Training Schedule
+  steps:
+  - intent: ask_training_schedule
+  - action: utter_training_schedule
+
+- rule: Explain Internship Policy
+  steps:
+  - intent: ask_internship_policy
+  - action: utter_internship_policy
+
+- rule: Explain Company Tiers
+  steps:
+  - intent: ask_company_tiers_explained
+  - action: utter_company_tiers_explained
+
+- rule: Give Preparation Tips
+  steps:
+  - intent: ask_general_preparation
+  - action: utter_general_preparation
+
+- rule: Explain General HR Questions
+  steps:
+  - intent: ask_general_hr_question
+  - action: utter_general_hr_question
+
+# ==================== PHASE 4: PLACEMENT PREDICTION RULES ====================
+- rule: Get Placement Probability
+  steps:
+  - intent: placement_probability
+  - action: action_get_placement_probability
+
+- rule: Get Eligible Companies
+  steps:
+  - intent: eligible_companies
+  - action: action_get_eligible_companies
+
+- rule: Get Skill Gap Analysis
+  steps:
+  - intent: skill_gap_analysis
+  - action: action_get_skill_gap
+
+
+# ==================== FALLBACK ====================
+- rule: Handle Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_default_fallback

@@ -1,0 +1,51 @@
+company_id,company_name,company_tier,avg_package_lpa,max_package_lpa,min_cgpa,allowed_departments,required_skills,backlogs_allowed,hiring_intensity,job_role_notes,difficulty_factor,company_cat,weight_dsa,weight_projects,weight_cs,weight_aptitude,weight_hr
+1,Amazon,Tier-1 Product,18.0,55,7.5,"CS, IT, AI, DS","DSA, System Design, OOPS, DBMS, Projects",0,25,"SDE roles, strong DSA & system design required",1.4,Product,0.45,0.3,0.15,0.07,0.03
+2,Google,Tier-1 Product,22.0,55,8.0,"CS, IT, AI, DS","DSA, Algorithms, System Design, OS, DBMS",0,10,Top-tier coding & problem solving skills,1.4,Product,0.45,0.3,0.15,0.07,0.03
+3,Microsoft,Tier-1 Product,16.0,50,7.0,"CS, IT, AI, DS","DSA, OOPS, System Design, Projects",0,15,Strong coding and design skills,1.4,Product,0.45,0.3,0.15,0.07,0.03
+4,Flipkart,Tier-1 Product,14.0,45,7.0,"CS, IT","DSA, Backend, APIs, Projects",0,12,Backend and system design focused,1.2,Product,0.45,0.3,0.15,0.07,0.03
+5,Walmart Global Tech,Tier-1 Product,15.0,48,7.2,"CS, IT","DSA, System Design, Databases",0,8,Product engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+6,Adobe,Tier-1 Product,13.0,42,7.0,"CS, IT","DSA, OOPS, C++, Java",0,6,Software engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+7,Atlassian,Tier-1 Product,17.0,50,7.5,"CS, IT","DSA, System Design, Cloud",0,5,High-end product engineering,1.2,Product,0.45,0.3,0.15,0.07,0.03
+8,Oracle,Tier-1 Product,12.0,38,6.8,"CS, IT","DSA, Databases, Java",0,10,Database and backend roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+9,Paytm,Tier-1 Product,10.0,35,6.5,"CS, IT","DSA, APIs, Backend, Projects",0,20,Fintech engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+10,Zomato,Tier-1 Product,9.0,32,6.5,"CS, IT","DSA, Backend, System Design",0,18,Tech product roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+11,IBM,Tier-2 Hybrid,7.5,20,6.0,"CS, IT, ECE","DSA, DBMS, OS, OOPS",1,40,Software and consulting roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+12,Accenture,Tier-2 Hybrid,6.5,18,6.0,"CS, IT, ECE","Aptitude, DSA, Communication",1,120,Tech + consulting roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+13,Cognizant,Tier-2 Hybrid,6.0,16,6.0,"CS, IT, ECE","Aptitude, Basic Coding, DBMS",1,150,Service + development roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+14,Capgemini,Tier-2 Hybrid,5.8,15,6.0,"CS, IT, ECE","Aptitude, OOPS, SQL",1,140,Service and support roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+15,Persistent Systems,Tier-2 Hybrid,8.0,22,6.5,"CS, IT","DSA, Projects, Backend",0,30,Product + service engineering roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+16,TCS,Tier-3 Service,4.5,10,5.5,"CS, IT, ECE, EE","Aptitude, Basic Coding, Communication",2,300,"Mass hiring, service roles",0.9,Hybrid ,0.3,0.2,0.2,0.2,0.1
+17,Infosys,Tier-3 Service,4.8,12,5.5,"CS, IT, ECE, EE","Aptitude, DSA Basics, English",2,280,Service and support roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+18,Wipro,Tier-3 Service,4.2,9,5.5,"CS, IT, ECE, EE","Aptitude, Basic Programming",2,250,IT service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+19,HCL,Tier-3 Service,4.0,8,5.5,"CS, IT, ECE, EE","Aptitude, Basic Coding",2,220,Support and service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+20,Tech Mahindra,Tier-3 Service,4.3,9,5.5,"CS, IT, ECE, EE","Aptitude, Communication, Basics",2,200,Telecom & IT service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+21,Netflix,Tier-1 Product,20.0,55,7.8,"CS, IT","DSA, System Design, Backend, Projects",0,5,Senior software engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+22,Uber,Tier-1 Product,18.0,50,7.5,"CS, IT","DSA, Algorithms, Backend, System Design",0,6,Backend and distributed systems,1.2,Product,0.45,0.3,0.15,0.07,0.03
+23,LinkedIn,Tier-1 Product,17.0,48,7.5,"CS, IT","DSA, System Design, Databases",0,7,Product engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+24,Twitter(X),Tier-1 Product,16.0,45,7.2,"CS, IT","DSA, Backend, APIs",0,8,Platform engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+25,SAP Labs,Tier-1 Product,14.0,40,7.0,"CS, IT","DSA, Java, DBMS",0,9,Enterprise software roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+26,Bosch,Tier-2 Hybrid,7.0,18,6.2,"CS, IT, ECE","Embedded, C++, OS",1,35,Embedded systems roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+27,Qualcomm,Tier-2 Hybrid,9.0,22,6.8,"CS, IT, ECE","DSA, Embedded, C++",0,20,Chipset and embedded roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+28,Intel,Tier-2 Hybrid,10.0,25,7.0,"CS, IT, ECE","DSA, OS, Architecture",0,15,Hardware-software roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+29,Dell,Tier-2 Hybrid,6.8,16,6.0,"CS, IT, ECE","DSA, Networking",1,50,IT engineering roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+30,HP,Tier-2 Hybrid,6.5,15,6.0,"CS, IT, ECE","DSA, Networking",1,55,IT support and engineering roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+31,L&T Infotech,Tier-2 Hybrid,6.2,14,6.0,"CS, IT, ECE","Aptitude, Coding Basics",1,70,Service engineering roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+32,Mindtree,Tier-2 Hybrid,6.0,13,6.0,"CS, IT, ECE","Aptitude, Coding Basics",1,65,Service roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+33,Mphasis,Tier-2 Hybrid,5.8,12,5.8,"CS, IT, ECE","Aptitude, Coding Basics",1,75,Service roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+34,Hexaware,Tier-2 Hybrid,5.6,11,5.5,"CS, IT, ECE","Aptitude, SQL, Basics",1,80,Service roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+35,KPMG,Tier-2 Hybrid,7.5,20,6.5,"CS, IT","Data, Analytics, SQL",1,30,Consulting and analytics roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+36,DXC Technology,Tier-3 Service,4.5,9,5.5,"CS, IT, ECE","Aptitude, Basics",2,180,Service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+37,Birlasoft,Tier-3 Service,4.2,8,5.5,"CS, IT, ECE","Aptitude, Basics",2,160,Service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+38,Zensar,Tier-3 Service,4.0,7,5.5,"CS, IT, ECE","Aptitude, Basics",2,170,Service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+39,Cybage,Tier-3 Service,4.3,8,5.5,"CS, IT, ECE","Aptitude, Basics",2,150,Service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+40,Sopra Steria,Tier-3 Service,4.1,7,5.5,"CS, IT, ECE","Aptitude, Basics",2,140,Service roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+41,Reliance Jio,Tier-3 Service,4.5,9,5.5,"CS, IT, ECE","Networking, Basics",2,130,Telecom IT roles,0.9,Service,0.25,0.15,0.15,0.3,0.15
+42,Tata Elxsi,Tier-2 Hybrid,7.2,18,6.5,"CS, IT, ECE","Embedded, DSA",0,25,Embedded and design roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+43,CGI,Tier-3 Service,4.6,9,5.5,"CS, IT, ECE","Aptitude, Basics",2,120,Service roles,0.9,Hybrid ,0.3,0.2,0.2,0.2,0.1
+44,Nagarro,Tier-2 Hybrid,8.0,20,6.5,"CS, IT","DSA, Projects, Java",0,22,Product + service roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+45,EPAM Systems,Tier-2 Hybrid,9.5,24,7.0,"CS, IT","DSA, System Design",0,12,Product engineering roles,1.0,Hybrid ,0.3,0.2,0.2,0.2,0.1
+46,Freshworks,Tier-1 Product,12.0,35,6.8,"CS, IT","DSA, Backend, APIs",0,9,SaaS product roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+47,Zoho,Tier-1 Product,10.0,30,6.5,"CS, IT","DSA, Backend, Projects",0,10,Product engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+48,Ola,Tier-1 Product,11.0,32,6.7,"CS, IT","DSA, Backend, APIs",0,11,Platform engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+49,Swiggy,Tier-1 Product,12.0,34,6.8,"CS, IT","DSA, Backend, System Design",0,9,Tech product roles,1.2,Product,0.45,0.3,0.15,0.07,0.03
+50,Razorpay,Tier-1 Product,13.0,36,7.0,"CS, IT","DSA, Backend, Fintech",0,8,Fintech engineering roles,1.2,Product,0.45,0.3,0.15,0.07,0.03

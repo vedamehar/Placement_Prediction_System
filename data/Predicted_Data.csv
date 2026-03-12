@@ -1,0 +1,6 @@
+student_id,overall_placement_probability,predicted_salary_lpa,salary_range_min_lpa,salary_range_mid_lpa,salary_range_max_lpa,prob_salary_gt_2_lpa,prob_salary_gt_5_lpa,prob_salary_gt_10_lpa,prob_salary_gt_15_lpa,prob_salary_gt_20_lpa,prob_salary_gt_25_lpa,prob_salary_gt_30_lpa,prob_salary_gt_35_lpa,prob_salary_gt_40_lpa,predicted_job_role,recommended_companies
+200000,99.23,29.46,20.62,29.46,38.3,98.8,96.9,92.6,91.5,91.1,48.8,6.4,3.6,0.9,SDE,"Mindtree,Walmart Global Tech,Zoho,Wipro,Bosch,Adobe,Intel,L&T Infotech,TCS,Dell"
+200051,5.0,6.090000152587891,4.26,6.090000152587891,7.91,75.6,39.1,1.4,0.5,0.4,0.4,0.3,0.2,0.1,Analyst,"Tech Mahindra,Cybage,Birlasoft,Sopra Steria,Wipro,Zensar,CGI,Reliance Jio,Tech Mahindra,CGI"
+200004,5.0,6.659999847412109,4.66,6.659999847412109,8.66,81.9,54.8,1.4,0.5,0.4,0.4,0.3,0.2,0.1,Support,"Zensar,TCS,Wipro,Birlasoft,Tech Mahindra"
+200007,5.0,6.320000171661377,4.420000076293945,6.320000171661377,8.210000038146973,81.0999984741211,52.79999923706055,1.2000000476837158,0.5,0.4000000059604645,0.4000000059604645,0.3000000119209289,0.2000000029802322,0.1000000014901161,Analyst,"Birlasoft,Wipro,TCS,HCL,Cybage"
+200005,85.44,6.800000190734863,4.76,6.800000190734863,8.84,82.4,55.6,4.2,3.2,2.3,2.0,1.6,1.1,0.6,Analyst,"HCL,Infosys,Wipro,Dell,Sopra Steria"

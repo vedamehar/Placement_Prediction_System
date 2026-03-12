@@ -1,0 +1,174 @@
+version: "3.1"
+
+intents:
+  # Basic
+  - greet
+  - thank_you
+  - goodbye
+  
+  # Layer 1: Company-Specific
+  - ask_avg_package
+  - ask_max_package
+  - ask_min_cgpa
+  - ask_allowed_departments
+  - ask_required_skills
+  - ask_company_backlogs
+  - ask_company_tier
+  - ask_hiring_roles
+  - ask_eligibility_summary
+  - ask_interview_process
+  - ask_preparation_roadmap
+  - ask_company_eligibility
+  - ask_prep_topics_by_area
+  - ask_general_hr_question
+  
+  # Layer 2: Aggregate/Analytics
+  - list_companies_by_cgpa
+  - list_companies_allowing_backlogs
+  - list_tier1_companies
+  - list_high_paying_companies
+  - list_companies_by_branch
+  - ask_count_companies
+  
+  # Layer 3: Policy/General
+  - ask_placement_rules
+  - ask_backlog_rules
+  - ask_training_schedule
+  - ask_internship_policy
+  - ask_company_tiers_explained
+  - ask_general_preparation
+  
+  - list_companies_by_category
+
+  # New Human-Like Intents
+  - ask_company_overview
+  - ask_company_difficulty
+  - ask_company_hiring_pattern
+  - ask_company_job_roles
+  - ask_company_category
+  - ask_company_tier_info
+  - ask_company_preparation
+  - compare_companies
+
+  # Layer 4: User Input
+  - inform_company
+
+  # Phase 4: Placement Prediction (New)
+  - placement_probability
+  - eligible_companies
+  - skill_gap_analysis
+
+  # Phase 3: Clarification Intents (Implemented via Context Logic)
+  
+entities:
+  - company
+  - prep_area
+
+slots:
+  company:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: company
+
+  prep_area:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: prep_area
+  
+  student_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  
+  last_company_asked:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+
+responses:
+  utter_greet:
+    - text: "Hi! I'm EduPlus PlaceMate AI.\nAsk me about:\n- Company packages, eligibility, skills\n- Aggregate queries (e.g., 'List Tier-1 companies')\n- Placement rules and preparation tips"
+
+  utter_thank_you:
+    - text: "You're welcome! Feel free to ask more questions."
+
+  utter_goodbye:
+    - text: "Goodbye! Best of luck with placements!"
+
+  utter_default:
+    - text: "I didn't understand that. Try asking about:\n- Specific company (e.g., 'Google package')\n- Aggregate query (e.g., 'List Tier-1 companies')\n- Placement policy (e.g., 'Placement rules')"
+  
+  utter_ask_company_clarification:
+    - text: "Please specify which company you are asking about."
+
+  # Layer 3: Static Policy Responses
+  utter_placement_rules:
+    - text: "Placement Rules:\n- 75% Attendance Mandatory\n- No Active Backlogs for Tier-1 Companies\n- Formal Attire Required for Interviews\n- One Offer Per Student (Dream/Super Dream Policy)"
+
+  utter_backlog_rules:
+    - text: "Backlog Policy:\n- Tier-1 Companies: 0 Backlogs Required\n- Tier-2 Companies: Maximum 1 Backlog Allowed\n- Tier-3 Companies: Maximum 2 Dead Backlogs Allowed\n- Active backlogs disqualify from most companies"
+
+  utter_training_schedule:
+    - text: "Training Schedule:\n- Days: Monday to Friday\n- Time: 5:00 PM - 7:00 PM\n- Topics: Data Structures & Algorithms, Aptitude, Communication Skills\n- Duration: 3 months before placement season"
+
+  utter_internship_policy:
+    - text: "Internship Policy:\n- Many Tier-1 and Tier-2 companies offer 2-3 month summer internships\n- PPO (Pre-Placement Offer) is possible based on internship performance\n- Internship CTC is typically 50-70% of full-time package\n- Some companies hire only through PPO route"
+
+  utter_company_tiers_explained:
+    - text: "Company Tier Classification:\n\nTier-1 (Product-Based):\n- High packages (10+ LPA)\n- Strong technical focus (DSA, System Design)\n- Examples: Google, Amazon, Microsoft, Flipkart\n\nTier-2 (Hybrid):\n- Moderate packages (6-10 LPA)\n- Mix of product and service\n- Examples: IBM, Accenture, Cognizant\n\nTier-3 (Service-Based):\n- Mass hiring (4-6 LPA)\n- Focus on aptitude and basics\n- Examples: TCS, Infosys, Wipro"
+
+  utter_general_preparation:
+    - text: "Placement Preparation Strategy:\n\n1. Technical Skills:\n   - Master DSA (Arrays, Strings, Trees, Graphs, DP)\n   - Practice on LeetCode, GeeksforGeeks\n   - Build 2-3 strong projects\n\n2. Core Subjects:\n   - DBMS, OS, OOPS, Computer Networks\n   - Revise theory + practice MCQs\n\n3. Aptitude:\n   - Quantitative, Logical, Verbal\n   - Practice daily (IndiaBix, PrepInsta)\n\n4. Soft Skills:\n   - Communication, Resume building\n   - Mock interviews\n\nStart 6 months before placement season!"
+
+  utter_general_hr_question:
+    - text: "HR Interview Preparation Tips:\n- Be ready with 'Tell me about yourself'.\n- Research the company's values and mission.\n- Use the STAR method (Situation, Task, Action, Result) for behavioral questions.\n- Common questions: Strengths/Weaknesses, Why should we hire you? Where do you see yourself in 5 years?\n- Dress formally and maintain good body language."
+
+actions:
+  # Layer 1: Company-Specific Actions
+  - action_get_avg_package
+  - action_get_max_package
+  - action_get_min_cgpa
+  - action_get_allowed_departments
+  - action_get_required_skills
+  - action_get_company_backlog_policy
+  - action_get_company_tier
+  - action_get_hiring_roles
+  - action_get_eligibility_summary
+  - action_check_eligibility
+  - action_prep_topics_by_area
+  - action_get_interview_process
+  - action_get_preparation_roadmap
+  
+  - action_list_companies_by_category
+
+  # New Human-Like Actions
+  - action_get_company_overview
+  - action_get_company_difficulty
+  - action_get_hiring_pattern
+  - action_get_job_roles
+  - action_get_company_category
+  - action_get_company_tier_info
+  - action_get_company_preparation
+  - action_compare_companies
+
+  # Layer 2: Aggregate Actions
+  - action_list_companies_by_cgpa
+  - action_list_companies_allowing_backlogs
+  - action_list_tier1_companies
+  - action_list_high_paying_companies
+  - action_list_companies_by_branch
+  - action_count_companies
+  - action_provide_company_options
+  
+  # Phase 4: Placement Prediction Actions
+  - action_get_placement_probability
+  - action_get_eligible_companies
+  - action_get_skill_gap
+  

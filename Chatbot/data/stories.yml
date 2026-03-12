@@ -1,0 +1,58 @@
+version: "3.1"
+
+stories:
+- story: Company Package Query Flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_avg_package
+    entities:
+    - company_name: "Google"
+  - action: action_get_avg_package
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Eligibility Check Flow
+  steps:
+  - intent: ask_eligibility_summary
+    entities:
+    - company_name: "Amazon"
+  - action: action_get_eligibility_summary
+  - intent: ask_interview_process
+    entities:
+    - company_name: "Amazon"
+  - action: action_get_interview_process
+
+- story: Aggregate Query Flow
+  steps:
+  - intent: list_tier1_companies
+  - action: action_list_tier1_companies
+  - intent: list_high_paying_companies
+  - action: action_list_high_paying_companies
+
+- story: Policy Query Flow
+  steps:
+  - intent: ask_placement_rules
+  - action: utter_placement_rules
+  - intent: ask_backlog_rules
+  - action: utter_backlog_rules
+
+- story: Mixed Query Flow
+  steps:
+  - intent: ask_company_tier
+    entities:
+    - company_name: "TCS"
+  - action: action_get_company_tier
+  - intent: list_companies_allowing_backlogs
+  - action: action_list_companies_allowing_backlogs
+  - intent: ask_general_preparation
+  - action: utter_general_preparation
+
+- story: Interview Process Query
+  steps:
+  - intent: ask_interview_process
+    entities:
+    - company_name: "IBM"
+  - action: action_get_interview_process
+  - intent: thank_you
+  - action: utter_thank_you

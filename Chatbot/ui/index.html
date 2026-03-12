@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlus PlaceMate AI - Placement FAQ Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .chat-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .send-button:active {
+            transform: translateY(0);
+        }
+
+        .send-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            max-width: 70px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .quick-suggestions {
+            padding: 10px 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .suggestion-chip {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .suggestion-chip:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .connection-status {
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            background: #fff3cd;
+            color: #856404;
+            display: none;
+        }
+
+        .connection-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        .connection-status.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🎓 EduPlus PlaceMate AI</h1>
+            <p>Your Intelligent Placement Assistant</p>
+        </div>
+
+        <div class="connection-status" id="connectionStatus"></div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    Hi! I'm EduPlus PlaceMate AI, your placement assistant. 👋
+
+                    I can help you with:
+                    • Company packages, CGPA, roles, and eligibility
+                    • Placement rules and policies
+                    • Training schedules and mock interviews
+                    • General placement FAQs
+
+                    What would you like to know?
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-suggestions">
+            <div class="suggestion-chip" onclick="sendQuickMessage('What is the package of Google?')">Google Package
+            </div>
+            <div class="suggestion-chip" onclick="sendQuickMessage('TCS CGPA requirement')">TCS CGPA</div>
+            <div class="suggestion-chip" onclick="sendQuickMessage('Placement rules')">Placement Rules</div>
+            <div class="suggestion-chip" onclick="sendQuickMessage('Backlog rules')">Backlog Rules</div>
+            <div class="suggestion-chip" onclick="sendQuickMessage('Training schedule')">Training Schedule</div>
+        </div>
+
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="userInput" placeholder="Ask me anything about placements..."
+                onkeypress="handleKeyPress(event)">
+            <button class="send-button" id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const RASA_SERVER_URL = 'http://localhost:5005/webhooks/rest/webhook';
+        let isWaitingForResponse = false;
+
+        // Check server connection on load
+        window.addEventListener('load', () => {
+            checkServerConnection();
+        });
+
+        async function checkServerConnection() {
+            try {
+                const response = await fetch('http://localhost:5005/', {
+                    method: 'GET',
+                });
+                if (response.ok) {
+                    showConnectionStatus('Connected to Rasa server ✓', 'success');
+                    setTimeout(() => hideConnectionStatus(), 3000);
+                }
+            } catch (error) {
+                showConnectionStatus('⚠️ Cannot connect to Rasa server. Please start the server first.', 'error');
+            }
+        }
+
+        function showConnectionStatus(message, type) {
+            const statusElement = document.getElementById('connectionStatus');
+            statusElement.textContent = message;
+            statusElement.className = `connection-status ${type}`;
+        }
+
+        function hideConnectionStatus() {
+            const statusElement = document.getElementById('connectionStatus');
+            statusElement.style.display = 'none';
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !isWaitingForResponse) {
+                sendMessage();
+            }
+        }
+
+        function sendQuickMessage(message) {
+            document.getElementById('userInput').value = message;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+
+            if (!message || isWaitingForResponse) return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Disable input while waiting
+            isWaitingForResponse = true;
+            document.getElementById('sendButton').disabled = true;
+            input.disabled = true;
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            try {
+                const response = await fetch(RASA_SERVER_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        sender: 'user',
+                        message: message
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Server error');
+                }
+
+                const data = await response.json();
+
+                // Hide typing indicator
+                hideTypingIndicator();
+
+                // Add bot responses
+                if (data && data.length > 0) {
+                    data.forEach((msg, index) => {
+                        setTimeout(() => {
+                            addMessage(msg.text, 'bot');
+                        }, index * 300);
+                    });
+                } else {
+                    addMessage("I'm sorry, I didn't get a response. Please try again.", 'bot');
+                }
+
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage("⚠️ Error connecting to the server. Please make sure Rasa server is running on http://localhost:5005", 'bot');
+                showConnectionStatus('Connection error. Please check if Rasa server is running.', 'error');
+            } finally {
+                // Re-enable input
+                isWaitingForResponse = false;
+                document.getElementById('sendButton').disabled = false;
+                input.disabled = false;
+                input.focus();
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+
+            messageDiv.appendChild(contentDiv);
+            messagesContainer.appendChild(messageDiv);
+
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'typing-indicator active';
+            indicatorDiv.innerHTML = '<span></span><span></span><span></span>';
+
+            typingDiv.appendChild(indicatorDiv);
+            messagesContainer.appendChild(typingDiv);
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Focus input on load
+        document.getElementById('userInput').focus();
+    </script>
+</body>
+
+</html>

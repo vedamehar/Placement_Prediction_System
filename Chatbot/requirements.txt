@@ -1,0 +1,6 @@
+rasa==3.6.13
+rasa-sdk>=3.6.2,<3.7.0
+pandas==2.0.3
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.21.1
+    
